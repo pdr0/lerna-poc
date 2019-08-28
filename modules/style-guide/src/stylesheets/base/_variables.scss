@@ -1,0 +1,173 @@
+//
+// @deprecated
+// Color non standard names
+//
+$light-green:       #A5CD28 !default;
+$dark-green:        #69A507 !default;
+$darker-green:      #3F6304 !default;
+
+$light-yellow:      #F3E650 !default;
+$dark-yellow:       #FFD205 !default;
+$darker-yellow:     #E5BC04 !default;
+
+$black:             #012406 !default;
+$dark-grey:         #9AA89C !default;
+$lighter-grey:      #FAFAFA !default;
+$light-grey:        #F2F4F2 !default;
+$medium-grey:       #D9DEDA !default;
+$white:             #FFFFFF !default;
+
+$validation-green:  #6FC079 !default;
+$validation-red:    #FE5F55 !default;
+
+$message-success: #EEF9E9 !default;
+
+$notification-success: #EEF9E9 !default;
+$notification-info: #EBF7FC !default;
+$notification-error: #FFF0EF !default;
+$notification-warning: #FCF5E2 !default;
+
+$callout-light: #A30855 !default;
+$callout-dark: #5B0841 !default;
+
+//
+// Color standard names
+//
+$color-ll-yellow-dark: $dark-yellow;
+$color-ll-green-dark: $dark-green;
+$color-ui-white:       $white;
+$color-ui-black:       $black;
+$color-ui-dark-grey:   $dark-grey;
+$color-ui-medium-grey: $medium-grey;
+$color-ui-lighter-grey: $lighter-grey;
+$color-ui-green-dark: $dark-green;
+$color-status-error: $validation-red;
+$color-status-success: $validation-green;
+$color-callout-light: $callout-light;
+$color-callout-dark: $callout-dark;
+
+
+//
+// Font
+//
+$font-family-sans-serif:      FF Daxline Pro, sans-serif !default; // Bootstrap
+$font-family-base:            $font-family-sans-serif !default; // Bootstrap
+$line-height-base:            1.5 !default; // Bootstrap
+$font-size-base:              1rem !default;
+$font-weight-base:            200 !default; // Bootstrap
+
+//
+// Body
+//
+$body-bg:    $white !default; // Bootstrap
+$body-color: $black !default; // Bootstrap
+
+//
+// Link
+//
+$link-color: $black !default; // Bootstrap
+$link-decoration:           none !default; // Bootstrap
+$link-hover-color:          darken($link-color, 15%) !default; // Bootstrap
+$link-hover-decoration:     underline !default; // Bootstrap
+$link-font-family: $font-family-base;
+$link-font-size: 14px;
+$link-font-size-small: 12px;
+
+//
+// Heading
+//
+$headings-margin-bottom:      5px !default; // Bootstrap
+$headings-font-family: $font-family-base;
+
+$headings-1-font-size:  60px;
+$headings-1-font-weight: 900;
+$headings-1-line-height:  $headings-1-font-size;
+$headings-1-text-transform: uppercase;
+
+$headings-2-font-size:  40px;
+$headings-2-font-weight: 900;
+$headings-2-line-height:  $headings-2-font-size;
+$headings-2-text-transform: uppercase;
+
+$headings-3-font-size:  28px;
+$headings-3-font-weight: 900;
+$headings-3-line-height:  30px;
+$headings-3-text-transform: uppercase;
+
+$headings-4-font-size:  21px;
+$headings-4-font-weight: 900;
+$headings-4-line-height:  24px;
+$headings-4-text-transform: uppercase;
+
+$headings-5-font-size:  17px;
+$headings-5-font-weight: 900;
+$headings-5-line-height:  21px;
+$headings-5-text-transform: uppercase;
+
+$headings-6-font-size:  17px;
+$headings-6-font-weight: 200;
+$headings-6-line-height:  26px;
+$headings-6-text-transform: none;
+
+$headings-7-font-size:  14px;
+$headings-7-font-weight: 500;
+$headings-7-line-height:  21px;
+$headings-7-text-transform: none;
+
+$headings-8-font-size:  17px;
+$headings-8-font-weight: 500;
+$headings-8-line-height:  21px;
+$headings-8-text-transform: none;
+
+//
+// Text
+//
+$paragraph-margin-bottom:   1rem !default; // Bootstrap
+$text-muted: $medium-grey !default; // Bootstrap
+
+//
+// List
+//
+$dt-font-weight:              200 !default; // Bootstrap
+
+//
+// Table
+//
+$table-cell-padding:      16px 21px 12px !default; // Bootstrap
+$table-border-color:      $medium-grey !default; // Bootstrap
+$table-border-width:      1px !default; // Bootstrap
+$table-head-bg:           transparent !default; // Bootstrap
+$table-head-color:        $dark-grey !default; // Bootstrap
+$table-caption-color:     $dark-grey !default; // Bootstrap
+$table-head-font-weight:  200 !default;
+
+//
+// Label
+//
+$label-margin-bottom:     7px !default; // Bootstrap
+
+//
+// Grid
+//
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default; // Bootstrap
+
+$screen-xs: 320px;
+$screen-sm: 768px !default;
+$screen-md: 1024px !default;
+$screen-lg: 1280px !default;
+$screen-extra: 544px !default;
+
+//
+// Base units
+//
+$base-unit: 7px;
+
+@function baseUnit( $value ) {
+  @return $value * $base-unit;
+}

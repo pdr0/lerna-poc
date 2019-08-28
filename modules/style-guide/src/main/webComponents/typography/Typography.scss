@@ -1,0 +1,12 @@
+@import "../../../stylesheets/base/variables";
+@import "../../../stylesheets/base/typography";
+
+:host {
+  display: block;
+}
+
+:host > * {
+  font-family: $font-family-sans-serif;
+  margin: 0;
+  color: var(--color, $black);
+}

@@ -1,0 +1,18 @@
+.horizontally-stacked-layout {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+
+  & > *:not(:last-child) {
+    margin-right: 28px;
+  }
+
+  & > .push {
+    margin-left: auto;
+  }
+}
+
+
+
+
+

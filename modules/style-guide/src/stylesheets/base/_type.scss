@@ -1,0 +1,32 @@
+@import "~bootstrap/scss/mixins/lists";
+
+//
+// Lists
+//
+
+.list-unstyled {
+  @include list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  @include list-unstyled;
+}
+.list-inline-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: 7px;
+  }
+}
+
+.list-block {
+  @include list-unstyled;
+}
+.list-block-item {
+  display: block;
+
+  &:not(:last-child) {
+    margin-top: 14px;
+  }
+}

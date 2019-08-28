@@ -1,0 +1,12 @@
+@import "../../../stylesheets/base/icons";
+
+i.icon {
+  color: var(--color);
+  top: 0;
+
+  &::before {
+    display: block;
+    line-height: 21px;
+    font-size: 21px;
+  }
+}

@@ -1,0 +1,13 @@
+@import "../../../stylesheets/base/variables";
+
+input {
+  border: none;
+  border-bottom: 1px solid $dark-grey;
+  outline: none;
+  color: $color-ui-black;
+  font-family: "FF Daxline Pro", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: center;
+}

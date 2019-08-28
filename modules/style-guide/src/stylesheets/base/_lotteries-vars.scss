@@ -1,0 +1,7 @@
+@import "./maps";
+@import "./lottery-properties";
+
+@mixin lotteries-vars($lotto) {
+    $lottery-light-color: mapGetProperty($lotteries, $lotto, 'colors', 'light') !global;
+    $lottery-dark-color: mapGetProperty($lotteries, $lotto, 'colors', 'dark') !global;
+}

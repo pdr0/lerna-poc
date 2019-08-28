@@ -1,0 +1,29 @@
+.vertically-stacked-layout-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+
+  &.small > *:not(:last-child) {
+    margin-bottom: 7px;
+  }
+
+  &.medium > *:not(:last-child) {
+    margin-bottom: 21px;
+  }
+
+  &.large > *:not(:last-child) {
+    margin-bottom: 28px;
+  }
+}
+
+.small > ::slotted(*:not(:last-child)) {
+  margin-bottom: 7px;
+}
+
+.medium > ::slotted(*:not(:last-child)) {
+  margin-bottom: 21px;
+}
+
+.large > ::slotted(*:not(:last-child)) {
+  margin-bottom: 28px;
+}

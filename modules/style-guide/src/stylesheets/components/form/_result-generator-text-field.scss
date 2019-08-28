@@ -1,0 +1,25 @@
+//******************************
+//
+//  RESULT GENERATOR TEXT FIELD
+//
+//******************************
+.result-generator-text-field {
+  label {
+    position: absolute;
+    top: -4px;
+    font-size: 12px;
+    transition: all .2s linear;
+    opacity: 0;
+    color: #012406;
+    line-height: 14px;
+    font-weight: 200;
+    padding: 0;
+    &.on {
+      top: 0;
+    }
+  }
+  .input {
+    padding-top: baseUnit(2);
+    color: $black;
+  }
+}

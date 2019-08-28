@@ -1,0 +1,15 @@
+@import "../../../stylesheets/base/variables";
+
+:host {
+  display: flex;
+}
+
+::slotted(ll-radio-alt) {
+  flex-grow: 1;
+  width: 100%;
+  margin-right: baseUnit(1);
+}
+
+::slotted(ll-radio-alt:last-of-type) {
+  margin-right: 0;
+}

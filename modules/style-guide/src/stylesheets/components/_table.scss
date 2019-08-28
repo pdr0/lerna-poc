@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/mixins/hover";
+@import "~bootstrap/scss/mixins/table-row";
+@import "~bootstrap/scss/tables";
+@import "../base/variables";
+
+.table {
+  border-bottom: $table-border-width solid $table-border-color;
+
+  thead th {
+    border-bottom: $table-border-width;
+    color: $table-head-color;
+    font-weight: $table-head-font-weight;
+  }
+}

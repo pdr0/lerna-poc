@@ -1,0 +1,27 @@
+@import "../../base/variables";
+
+//******************************
+//
+//         HIGHLIGHT CONTAINER
+//
+//******************************
+.highlight-container-placeholder {
+  background: $lighter-grey;
+  padding: $base-unit * 2;
+}
+
+.highlight-container-help-text {
+  font-size: 12px;
+  font-weight: 200;
+  margin-top: 7px;
+}
+
+.highlight-container-is-invalid {
+  .highlight-container-placeholder {
+    background-color: #FFEFEF;
+  }
+
+  .highlight-container-help-text {
+    color: $validation-red;
+  }
+}

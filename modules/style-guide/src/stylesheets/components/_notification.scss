@@ -1,0 +1,45 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+//******************************
+//
+//          DEFAULT
+//
+//******************************
+.notification {
+  padding: baseUnit(3);
+  font-family: FF Daxline Pro;
+  font-weight: 200;
+  color: #012406;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+
+  &-success {
+    background-color: $notification-success;
+  }
+  &-info {
+    background-color: $notification-info;
+  }
+  &-error {
+    background-color: $notification-error;
+  }
+  &-warning {
+    background-color: $notification-warning;
+  }
+
+  &-icon {
+    padding-right: baseUnit(3);
+    font-size: 26px;
+    height: 26px;
+  }
+
+  &-content {
+    padding-left: baseUnit(3);
+    font-size: 14px;
+    line-height: 21px;
+    border-left: 1px solid #012406;
+  }
+
+}
+

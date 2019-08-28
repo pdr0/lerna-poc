@@ -1,0 +1,27 @@
+@import "../base/variables";
+
+$positions: 'top', 'right', 'bottom', 'left';
+$sizes: ('sm': (1, 2), 'md': (2, 3), 'lg': (4, 6), 'xl': (6, 9));
+$types: 'margin', 'padding';
+
+@each $sizeName, $size in $sizes {
+  @each $type in $types {
+    @each $position in $positions {
+      .ll-#{$type}-#{$sizeName}-#{$position} {
+        #{$type}-#{$position}: baseUnit(nth($size, 1));
+
+        @media (min-width: $screen-sm) {
+          #{$type}-#{$position}: baseUnit(nth($size, 2));
+        }
+      }
+    }
+
+    .ll-#{$type}-#{$sizeName} {
+      #{$type}: baseUnit(nth($size, 1));
+
+      @media (min-width: $screen-sm) {
+        #{$type}: baseUnit(nth($size, 2));
+      }
+    }
+  }
+}

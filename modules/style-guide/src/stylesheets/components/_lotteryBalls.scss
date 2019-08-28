@@ -1,0 +1,9 @@
+@import "../base/variables";
+
+.l-lottery-numbers {
+  font-size: baseUnit(2);
+  color: $black;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}

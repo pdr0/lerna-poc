@@ -1,0 +1,113 @@
+@import "../../base/variables";
+
+//******************************
+//
+//         FORM ENTRY
+//
+//******************************
+.form-entry {
+  display: block;
+  position: relative;
+
+  .form-entry-icon {
+    display: inline-block;
+    height: 28px;
+    width: 28px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 14px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px $medium-grey inset;
+    color: $dark-grey;
+    text-align: center;
+    line-height: 28px;
+
+    &:before {
+      position: relative;
+    }
+  }
+
+  &.form-entry-with-icon {
+    .form-entry-content,
+    .form-entry-help-text {
+      display: block;
+      margin-left: 28px + 14px;
+    }
+    label {
+      left: 28px + 14px;
+    }
+  }
+
+  label {
+    position: absolute;
+    top: -4px;
+    font-size: 12px;
+    transition: all .2s linear;
+    opacity: 0;
+    color: $black;
+    line-height: 14px;
+    font-weight: 200;
+    padding: 0; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+
+    &.on {
+      opacity: 1;
+      top: -17px;
+    }
+  }
+
+  .form-entry-help-text {
+    font-size: 12px;
+    font-weight: 200;
+    margin-top: 7px;
+  }
+
+  &.form-entry-is-disabled {
+    label {
+      color: $dark-grey;
+    }
+  }
+
+  &.form-entry-is-valid {
+    .form-entry-help-text {
+      color: $validation-green;
+    }
+  }
+
+  &.form-entry-is-invalid {
+    .form-entry-help-text {
+      color: $validation-red;
+    }
+  }
+
+  &.form-entry-with-prefix-text {
+    .form-entry-content {
+      margin-left: 35px;
+      position: relative;
+
+      .form-entry-prefix-text {
+        position: absolute;
+        left: -35px;
+        bottom: 2px;
+        font-weight: 300;
+        font-size: 14px;
+        color: #9AA89C;
+      }
+    }
+  }
+}
+
+.form-entry + .form-entry,
+.row + .form-entry {
+  margin-top: 35px;
+
+  &.text-field {
+    margin-top: 21px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

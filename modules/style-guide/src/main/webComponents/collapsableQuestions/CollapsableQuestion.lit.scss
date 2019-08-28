@@ -1,0 +1,38 @@
+@import "../../../stylesheets/base/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1 1 0;
+
+  slot {
+    display: block;
+  }
+}
+
+:host([collapsed]) {
+  slot[name=icon],
+  slot[name=description] {
+    display: none;
+  }
+}
+
+slot[name=title] {
+  display: block;
+  font-family: "FF Daxline Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
+  color: $color-ui-black;
+}
+
+slot[name=description] {
+  color: $color-ui-black;
+  font-family: "FF Daxline Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  text-align: center;
+}

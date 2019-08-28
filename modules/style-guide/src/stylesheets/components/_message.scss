@@ -1,0 +1,30 @@
+@import "../base/variables";
+
+.message {
+  $boundary-gap: 21px;
+
+  display: flex;
+  padding: $boundary-gap;
+  font-size: 14px;
+  font-weight: 400;
+  color: $black;
+  border-radius: 4px;
+  background-color: $message-success;
+
+  .message-icon,
+  .message-text {
+    display: flex;
+    align-items: center;
+  }
+
+  .message-icon {
+    top: 0;
+    font-size: 26px;
+    padding-right: $boundary-gap;
+    border-right: 1px solid $black;
+  }
+
+  .message-text {
+    padding-left: $boundary-gap;
+  }
+}

@@ -1,0 +1,77 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+//******************************
+//
+//          DEFAULT
+//
+//******************************
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: auto;
+  padding: baseUnit(3) baseUnit(2) baseUnit(2);
+  background-color: $white;
+  overflow: auto;
+  z-index: 100;
+  opacity: 1;
+
+  .modal-close {
+    position: absolute;
+    top: baseUnit(2);
+    right: baseUnit(2);
+    font-size: 15px;
+    cursor: pointer;
+  }
+}
+
+@include media-breakpoint-up('md') {
+  .modal-container {
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background-color: rgba(1, 36, 6, 0.5);
+      z-index: 99;
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+
+  .modal {
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    min-width: 600px;
+    min-height: 200px; // ToDo: determine for styleguide
+    border: 1px solid $medium-grey;
+    border-radius: 4px;
+    box-shadow: 0 7px 21px 0 rgba($black, 0.2);
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    padding: 0;
+
+    .modal-content {
+      padding: baseUnit(4);
+      overflow: hidden;
+      margin: 0;
+      width: 100%;
+    }
+
+    .modal-close {
+      top: baseUnit(4);
+      right: baseUnit(4);
+    }
+  }
+
+}
+
+
+

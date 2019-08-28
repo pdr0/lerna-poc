@@ -1,0 +1,70 @@
+@import "../base/variables";
+
+.l-tabs {
+  padding-top: baseUnit(1);
+  .l-tabs-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $medium-grey;
+    padding-bottom: 10px;
+
+    .l-tabs-separator {
+      flex-grow: 0;
+      display: inline-block;
+      vertical-align: middle;
+      width: 1px;
+      height: 28px;
+      margin: 0 5px;
+      border-right: 1px solid $medium-grey;
+    }
+
+    .l-tab {
+      flex-grow: 1;
+      max-height: 40px;
+      text-align: center;
+      display: inline-block;
+      padding-top: 10px;
+      vertical-align: top;
+      cursor: pointer;
+      position: relative;
+      color: $dark-green;
+      font-weight: 500;
+
+
+      &:hover {
+        background-color: #fff;
+      }
+
+      &-checked {
+        cursor: default;
+        color: $black;
+
+        &:after {
+          content: '';
+          position: absolute;
+          display: block;
+          width: 100%;
+          bottom: -10px;
+          height: 4px;
+          background: $dark-green;
+        }
+      }
+    }
+  }
+
+  .l-tab-panels {
+    margin-top: baseUnit(2);
+    .l-tab-panel {
+      width: 100%;
+      display: none;
+      flex-basis: auto;
+
+      &-show {
+        display: block;
+      }
+    }
+  }
+}
+
+

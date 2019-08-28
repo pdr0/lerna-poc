@@ -1,0 +1,20 @@
+//******************************
+//
+//             BASE
+//
+//******************************
+@import "base/variables";
+@import "base/icons";
+@import "base/lotteries-vars";
+@import "storybook/reboot";
+@import "utils/spaces";
+
+html, body {
+  line-height: 18px; // to be more close to lottoland contract / skin
+}
+
+label {
+  margin-bottom: 0; // is set by reboot to .5rem.
+}
+
+// daasd asd asd asd

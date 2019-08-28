@@ -1,0 +1,53 @@
+@import "../../../stylesheets/base/variables";
+
+.container {
+  border: 1px solid $color-ui-medium-grey;
+  border-radius: 4px;
+  background-color: $white;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+
+  @media (min-width: $screen-sm) {
+    display: flex;
+    cursor: default;
+  }
+}
+
+.container::before {
+  font-family: "ll-icon-font";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  speak: none;
+  line-height: 1;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\31";
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  background: transparent;
+  color: $color-ui-dark-grey;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: baseUnit(2);
+  margin-top: baseUnit(2);
+
+  @media (min-width: $screen-sm) {
+    display: none;
+  }
+}
+
+.container.expanded::before {
+  content: "\32";
+}
+
+::slotted(ll-collapsable-question:not(:last-child)) {
+  @media (min-width: $screen-sm) {
+    margin-right: baseUnit(3);
+  }
+}

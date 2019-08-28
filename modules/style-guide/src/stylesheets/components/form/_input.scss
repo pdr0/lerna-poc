@@ -1,0 +1,69 @@
+@import "../../base/variables";
+
+//******************************
+//
+//            INPUT
+//
+//******************************
+.input {
+  display: block;
+  width: 100%;
+  padding: 4px 0 2px;
+  border: none;
+  border-bottom: 1px solid $medium-grey;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: $dark-grey;
+  background-color: transparent;
+  transition: color .15s ease-in-out, box-shadow .15s ease-in-out;
+  height: auto; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+  border-radius: 0; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+  -webkit-appearance: none;
+  box-shadow: none;
+
+  @include placeholder {
+    opacity: 1;
+    color: $dark-grey;
+    transition: color .15s ease-in-out;
+    font-weight: 200;
+  }
+
+  &.is-filled,
+  &:focus {
+    border-bottom: 1px solid $black;
+    color: $black;
+    outline: none;
+    box-shadow: none;
+
+    @include placeholder {
+      color: $black;
+    }
+  }
+
+  &[disabled] {
+    box-shadow: none;
+    color: $dark-grey;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &.is-valid {
+    border-bottom: 1px solid $validation-green;
+    box-shadow: none;
+  }
+
+  &.is-invalid {
+    border-bottom: 1px solid $validation-red;
+    box-shadow: none;
+  }
+
+  &.is-disabled-with-value {
+    border-bottom: none;
+    color: $black;
+    box-shadow: none;
+    -webkit-text-fill-color: $black;
+  }
+}

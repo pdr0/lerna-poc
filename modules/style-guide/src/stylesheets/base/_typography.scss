@@ -1,0 +1,73 @@
+@import "variables";
+
+@mixin heading($font-size, $font-weight, $line-height, $text-transform) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  text-transform: $text-transform;
+  color: $black;
+}
+
+//******************************
+//
+//          HEADINGS
+//
+//******************************
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: $font-family-base;
+}
+
+.h1 {
+  @include heading($headings-1-font-size, $headings-1-font-weight, $headings-1-line-height, $headings-1-text-transform);
+}
+
+.h2 {
+  @include heading($headings-2-font-size, $headings-2-font-weight, $headings-2-line-height, $headings-2-text-transform);
+}
+
+.h3 {
+  @include heading($headings-3-font-size, $headings-3-font-weight, $headings-3-line-height, $headings-3-text-transform);
+}
+
+.h4 {
+  @include heading($headings-4-font-size, $headings-4-font-weight, $headings-4-line-height, $headings-4-text-transform);
+}
+
+.h5 {
+  @include heading($headings-5-font-size, $headings-5-font-weight, $headings-5-line-height, $headings-5-text-transform);
+}
+
+.h6 {
+  @include heading($headings-6-font-size, $headings-6-font-weight, $headings-6-line-height, $headings-6-text-transform);
+}
+
+.h7 {
+  @include heading($headings-7-font-size, $headings-7-font-weight, $headings-7-line-height, $headings-7-text-transform);
+}
+
+.h8 {
+  @include heading($headings-8-font-size, $headings-8-font-weight, $headings-8-line-height, $headings-8-text-transform);
+}
+
+.p {
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.sp {
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.callout {
+  font-weight: 900;
+  font-size: 10px;
+  line-height: 10px;
+}

@@ -1,0 +1,10 @@
+@import "../../../stylesheets/base/variables";
+
+:host::after {
+  content: "";
+  display: inline-block;
+  height: 4px;
+  width: 28px;
+  background-color: $color-ui-black;
+  line-height: 11px;
+}

@@ -1,0 +1,90 @@
+@import "../../base/variables";
+
+//******************************
+//
+//          SELECT
+//
+//******************************
+.dropdown {
+  font-size: 14px;
+  line-height: 42px;
+  height: 42px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px $medium-grey inset;
+
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &.is-selected {
+    select {
+      font-weight: 500;
+    }
+  }
+
+  select {
+    color: $black;
+    position: relative;
+    height: 42px;
+    background: transparent;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-left: 14px;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 200;
+    padding-top: 1px;
+
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 $black;
+    }
+
+    option {
+      color: $black;
+    }
+
+    &[disabled] {
+      color: $medium-grey;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  &.is-empty-option select,
+  select option[disabled] {
+    color: $medium-grey;
+  }
+
+  &:after {
+    font-family: "ll-icon-font";
+    speak: none;
+    line-height: 42px;
+    content: "\31";
+
+    position: absolute;
+    right: 0;
+    width: 28px;
+    pointer-events: none;
+    color: $black;
+  }
+
+  &.is-disabled:after {
+    color: $medium-grey;
+  }
+
+  &:not(.is-disabled):hover {
+    box-shadow: 0 0 0 1px $dark-grey inset;
+  }
+}

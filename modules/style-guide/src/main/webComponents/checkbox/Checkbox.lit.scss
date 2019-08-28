@@ -1,0 +1,98 @@
+@import "../../../stylesheets/base/variables";
+
+$checkbox-border-size: 1px;
+$checkbox-border-size-checked: 3px;
+
+:host {
+    display: inline-block;
+    position: relative;
+
+    label {
+        display: flex;
+        align-items: center;
+        font: $font-family-base;
+        font-size: 14px;
+        cursor: pointer;
+        user-select: none;
+        font-weight: 200;
+    }
+
+    .checkbox {
+        flex: 0 0 baseUnit(4);
+        margin-right: baseUnit(2);
+        align-self: flex-start;
+    }
+
+    .checkbox-marker {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        line-height: baseUnit(3);
+
+        background: $white;
+        width: 22px;
+        height: 22px;
+        padding: $checkbox-border-size-checked - $checkbox-border-size;
+        border: $checkbox-border-size solid $medium-grey;
+        pointer-events: none;
+    }
+
+    input[type=checkbox] {
+        cursor: pointer;
+        opacity: 0;
+        border: $checkbox-border-size solid $medium-grey;
+        width: baseUnit(4);
+        height: baseUnit(4);
+        padding: $checkbox-border-size-checked - $checkbox-border-size;
+        margin: 0;
+        display: block;
+    }
+
+    label.checked {
+        font-weight: 500;
+
+        .checkbox-marker {
+            border: $checkbox-border-size-checked solid $dark-yellow;
+            padding: 0;
+
+            &:after {
+                font-family: "ll-icon-font";
+                font-size: 16px;
+                content: '\52';
+                padding-left: 3px;
+            }
+        }
+    }
+
+    label:not(.disabled) {
+        input[type=checkbox]:hover + .checkbox-marker {
+            border: $checkbox-border-size solid $dark-grey;
+        }
+
+        &.checked {
+            input[type=checkbox]:hover + .checkbox-marker {
+                border: $checkbox-border-size-checked solid $darker-yellow;
+            }
+        }
+    }
+
+    label.disabled {
+        cursor: not-allowed;
+
+        .checkbox-marker {
+            opacity: 0.5;
+        }
+
+        input[type=checkbox] {
+            cursor: not-allowed;
+        }
+
+        &.checked {
+            .checkbox-marker {
+                border: $checkbox-border-size-checked solid $medium-grey;
+            }
+        }
+    }
+}

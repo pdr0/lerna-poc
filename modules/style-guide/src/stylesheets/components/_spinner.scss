@@ -1,0 +1,40 @@
+@import "../base/variables";
+
+.l-spinner {
+  $spinner-rotation:1s;
+  $spinner-color:$dark-green;
+  $spinner-border: ceil(baseUnit(1));
+  $spinner-diameter:ceil(baseUnit(5));
+  $spinner-token-diameter:($spinner-diameter + $spinner-border * 2) / 2;
+
+  display: flex;
+  justify-content: center;
+
+  &-container, &-token {
+    width: $spinner-diameter;
+    height: $spinner-diameter;
+    position: relative;
+    border-radius: 50%;
+    border: $spinner-border solid $spinner-color;
+    margin: 0;
+    box-sizing: content-box;
+  }
+
+  &-token {
+    top:-$spinner-border;
+    right:-$spinner-border;
+    border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
+    animation: l-spinner-rotation $spinner-rotation linear infinite;
+    position: absolute;
+  }
+
+  &-text {
+    padding-top: 60px;
+    position: absolute;
+  }
+}
+
+@include keyframes(l-spinner-rotation) {
+  from { @include transform(rotate(0deg)); }
+  to { @include transform(rotate(360deg)); }
+}

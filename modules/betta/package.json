@@ -1,0 +1,17 @@
+{
+  "name": "beta",
+  "version": "1.0.0",
+  "description": "a random beta package",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "poc"
+  ],
+  "author": "Pedro Selas",
+  "license": "ISC",
+  "devDependencies": {
+    "material-components-web": "^3.1.1"
+  }
+}

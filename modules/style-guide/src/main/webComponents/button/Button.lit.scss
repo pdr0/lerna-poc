@@ -1,0 +1,182 @@
+@import "../../../stylesheets/base/icons";
+@import "../../../stylesheets/base/variables";
+
+@mixin define-type(
+  $text-color: $color-ui-white,
+  $background: $color-ll-green-dark,
+  $hover-background: $color-ll-green-dark,
+  $text-active-color: null
+) {
+  background: $background;
+
+  &, slot:not([name]) {
+    color: $text-color;
+  }
+
+  @if ($text-active-color != null) {
+    &:active slot:not([name]), &:active {
+      color: $text-active-color;
+    }
+  }
+
+  &:not(:disabled) {
+    &:after {
+      background: $hover-background;
+    }
+  }
+
+  @content;
+}
+
+:host {
+  display: inline-block;
+}
+
+:host, button.button, a.button, slot:not([name]) {
+  font-family: "FF Daxline Pro", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--color, $color-ui-white);
+  vertical-align: middle;
+}
+
+button.button, a.button {
+  cursor: pointer;
+  width: 100%;
+  text-transform: uppercase;
+  border: none;
+  box-sizing: border-box;
+  box-shadow: 0 4px 7px 0 rgba(1, 36, 6, 0.20);
+  z-index: 1;
+  position: relative;
+  outline: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: color 0.3s linear;
+  height: 40px;
+  padding: 0 baseUnit(3);
+
+  &:not(:disabled) {
+    &:after {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition: opacity 0.3s linear;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    &:hover::after {
+      opacity: 0.5;
+    }
+
+    &:active::after {
+      opacity: 1;
+    }
+  }
+
+  &, &:after {
+    border-radius: 2px;
+  }
+
+  &:disabled, &.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.type-primary, &.type-primarycart {
+    @include define-type(
+            $text-color: $color-ui-white,
+            $background: linear-gradient(to right, $light-green, $color-ll-green-dark),
+            $hover-background: $color-ll-green-dark
+    );
+  }
+
+  &.type-secondary, &.type-secondarycart {
+    @include define-type(
+            $text-color: $color-ll-green-dark,
+            $background: $color-ui-white,
+            $hover-background: rgba($color-ui-medium-grey, 0.7),
+            $text-active-color: #3F6304
+    );
+    border: 1px solid $color-ui-medium-grey;
+
+    &.size-extra-small {
+      height: 32px;
+      padding: 0 baseUnit(1);
+      font-size: 12px;
+      slot:not([name]) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &.type-primarycart, &.type-secondarycart {
+    height: 40px;
+    padding: 0 baseUnit(2);
+    &::before {
+      font-size: baseUnit(3);
+      margin-right: baseUnit(2);
+      font-family: "ll-icon-font";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: "\71";
+    }
+    &-extended {
+      height: 49px;
+      &:before {
+        font-size: baseUnit(4);
+      }
+
+      slot[name='secondary'] {
+        padding-top: 2px;
+      }
+    }
+  }
+
+  &.size-small {
+    height: 32px;
+    padding: 0 baseUnit(3);
+  }
+
+  &.size-large {
+    height: 49px;
+    padding: 0 baseUnit(5);
+    font-size: 17px;
+    slot:not([name]) {
+      font-size: 17px;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  slot {
+    text-align: left;
+    display: block;
+    padding-top: 1px;
+    transition: color 0.3s linear;
+    &[name='secondary'] {
+      text-transform: none;
+      color: $color-ui-black;
+      font-size: 11px;
+      font-weight: 500;
+    }
+  }
+
+}
+
+@import "./Button.override";

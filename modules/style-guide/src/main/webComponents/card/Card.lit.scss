@@ -1,0 +1,161 @@
+@import "../../../stylesheets/base/variables";
+
+:host {
+  display: block;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+
+  &.with-border {
+    border: 1px solid $color-ui-medium-grey;
+  }
+
+  &.bottom, &.right {
+    flex-direction: column-reverse;
+  }
+
+  @media (min-width: $screen-sm) {
+    &.right {
+      flex-direction: row-reverse;
+    }
+
+    &.left {
+      flex-direction: row;
+    }
+
+    &.top {
+      flex-direction: column;
+    }
+  }
+
+  // media-container
+
+  .media-container.full-size {
+    margin: baseUnit(-2);
+  }
+
+  &.no-media .media-container {
+    display: none;
+  }
+
+  &.top .media-container.full-size,
+  &.left .media-container.full-size {
+    margin-bottom: 0;
+  }
+
+  &.bottom .media-container.full-size,
+  &.right .media-container.full-size {
+    margin-top: 0;
+  }
+
+  @media (min-width: $screen-sm) {
+    &.right .media-container,
+    &.left .media-container {
+      flex: 2;
+      align-self: center;
+    }
+
+    &.top .media-container.full-size {
+      margin: baseUnit(-3);
+      margin-bottom: 0;
+    }
+
+    &.left .media-container.full-size {
+      margin: baseUnit(-3);
+      margin-right: 0;
+    }
+
+    &.right .media-container.full-size {
+      margin: baseUnit(-3);
+      margin-left: 0;
+    }
+
+    &.bottom .media-container.full-size {
+      margin: baseUnit(-3);
+      margin-top: 0;
+    }
+  }
+
+  ::slotted(img), ::slotted(video) {
+    overflow: hidden;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: $screen-sm) {
+    &.top {
+      ::slotted(img), ::slotted(video) {
+        overflow: hidden;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &.right, &left {
+      ::slotted(img), ::slotted(video) {
+        height: 100%;
+      }
+    }
+  }
+
+  // text-container
+
+  .text-container {
+    &.left {
+      text-align: left;
+    }
+
+    &.right {
+      text-align: right;
+    }
+
+    &.center {
+      text-align: center;
+    }
+  }
+
+  &.left .text-container,
+  &.top .text-container {
+    margin-top: baseUnit(2);
+  }
+
+  @media (min-width: $screen-sm) {
+    &.right .text-container {
+      margin-right: baseUnit(6);
+    }
+
+    &.left .text-container {
+      margin-left: baseUnit(6);
+    }
+
+    &.right .text-container,
+    &.left .text-container {
+      flex: 1;
+      margin-top: baseUnit(3);
+    }
+
+    &.top .text-container {
+      margin-top: baseUnit(3);
+    }
+  }
+
+  &.no-media .text-container {
+    margin: 0;
+  }
+
+  // paragraph-container
+
+  &.bottom .paragraph-container,
+  &.right .paragraph-container {
+    margin-bottom: baseUnit(2);
+  }
+
+  &.bottom .paragraph-container {
+    @media (min-width: $screen-sm) {
+      margin-bottom: baseUnit(3);
+    }
+  }
+}
+

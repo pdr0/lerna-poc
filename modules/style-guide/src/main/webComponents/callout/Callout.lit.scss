@@ -1,0 +1,28 @@
+@import "../../../stylesheets/base/variables";
+
+.main-container {
+  position: relative;
+}
+
+ll-typography {
+  height: baseUnit(3);
+  --color: #{$color-ui-white};
+  position: absolute;
+  top: 0;
+  left: baseUnit(2);
+  margin-top: baseUnit(-1);
+  padding: 0 baseUnit(2);
+  text-transform: uppercase;
+  border-radius: 0 baseUnit(1);
+  background: $color-callout-light linear-gradient(90deg, $color-callout-light 0%, $color-callout-dark 100%);
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+slot {
+  overflow: hidden;
+  display: block;
+}

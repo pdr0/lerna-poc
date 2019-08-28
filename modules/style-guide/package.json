@@ -1,0 +1,161 @@
+{
+  "name": "lotto-styleguide",
+  "version": "0.1.43",
+  "private": true,
+  "main": "src/main/react/index.js",
+  "types": "types.d.ts",
+  "dependencies": {
+    "@skatejs/element": "0.0.1",
+    "bootstrap": "4.3.1",
+    "classnames": "2.2.6",
+    "lit-element": "2.1.0",
+    "lodash.noop": "3.0.1",
+    "lotto-web-component-wrapper": "0.1.5",
+    "moment": "2.22.2",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-dates": "16.7.0",
+    "react-dom": "16.8.6",
+    "react-moment-proptypes": "1.6.0",
+    "tslib": "1.9.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.2",
+    "babel-plugin-lodash": "3.3.4",
+    "babel-preset-react-app": "9.0.0",
+    "@dump247/storybook-state": "1.6.1",
+    "@lotto/browserslist-config": "1.0.0",
+    "@lotto/lit-css-loader": "1.1.0",
+    "@open-wc/testing-helpers": "0.9.4",
+    "@storybook/addon-actions": "5.1.9",
+    "@storybook/addon-info": "5.1.9",
+    "@storybook/addon-knobs": "5.1.9",
+    "@storybook/addon-links": "5.1.9",
+    "@storybook/addon-options": "5.1.9",
+    "@storybook/addon-viewport": "5.1.9",
+    "@storybook/addons": "5.1.9",
+    "@storybook/react": "5.1.9",
+    "@types/jasmine": "3.3.12",
+    "@types/react": "16.8.17",
+    "@types/react-dom": "16.8.4",
+    "@types/sinon": "7.0.13",
+    "@typescript-eslint/eslint-plugin": "1.11.0",
+    "@typescript-eslint/parser": "1.11.0",
+    "@webcomponents/webcomponentsjs": "2.2.7",
+    "awesome-typescript-loader": "5.2.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.0.2",
+    "babel-jest": "24.8.0",
+    "babel-loader": "8.0.6",
+    "css-loader": "2.1.0",
+    "enzyme": "3.10.0",
+    "enzyme-adapter-react-16": "1.14.0",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-config-react-app": "4.0.1",
+    "eslint-plugin-flowtype": "2.50.3",
+    "eslint-plugin-import": "2.18.0",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-react": "7.14.2",
+    "eslint-plugin-react-hooks": "1.5.0",
+    "flow-bin": "0.100.0",
+    "flow-typed": "2.5.2",
+    "istanbul-instrumenter-loader": "3.0.1",
+    "jasmine": "3.4.0",
+    "jest": "24.8.0",
+    "jest-teamcity-reporter": "0.9.0",
+    "karma": "4.1.0",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-coverage-istanbul-reporter": "2.0.5",
+    "karma-jasmine": "2.0.1",
+    "karma-mocha-reporter": "2.2.5",
+    "karma-sourcemap-loader": "0.3.7",
+    "karma-teamcity-reporter": "1.1.0",
+    "karma-webpack": "4.0.2",
+    "node-sass": "4.12.0",
+    "prettier": "1.18.2",
+    "raw-loader": "1.0.0",
+    "react-dev-utils": "9.0.1",
+    "sass-loader": "7.1.0",
+    "sinon": "7.3.2",
+    "style-loader": "0.23.1",
+    "ts-jest": "24.0.2",
+    "typescript": "3.4.5",
+    "whatwg-fetch": "3.0.0"
+  },
+  "scripts": {
+    "start": "npm run storybook",
+    "test": "npm run jest && npm run karma",
+    "karma": "karma start --single-run",
+    "jest": "node scripts/test.js --coverage",
+    "test-coverage": "npm run test -- --coverage",
+    "flow": "flow",
+    "storybook": "start-storybook -p 60001 -c ./config/storybook -s ./config/storybook/static",
+    "build-storybook": "NODE_ENV=development build-storybook -c ./config/storybook -s ./config/storybook/static",
+    "test-ci": "npm run test -- --coverage --testResultsProcessor=jest-teamcity-reporter",
+    "pretty": "prettier --write 'src/main/**/*.{js,jsx,mjs,ts}'"
+  },
+  "publishConfig": {
+    "registry": "https://repo.dreamit.de/api/npm/npm-repo/"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/main/**/*.{js,jsx,mjs}",
+      "!src/**/*.stories.{js,jsx}",
+      "!src/**/*DesignWrapper.{js,jsx}",
+      "!src/main/react/index.{js,jsx}",
+      "!src/main/react/datePicker/**/*",
+      "!src/main/types/**/*.{js,jsx}",
+      "!src/main/constants/**/*.{js,jsx}",
+      "!src/main/webComponents/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js",
+      "<rootDir>/config/jest/setup.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/test/unit/**/?(*.)(spec|test).{js,jsx,mjs}"
+    ],
+    "testResultsProcessor": "jest-teamcity-reporter",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "teamcity",
+      "lcov"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/config/jest/wrapper.js",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(lit-element|lit-html)/)"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "coverageThreshold": {
+      "global": {
+        "lines": 78
+      }
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "mjs",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node",
+      "ts",
+      "tsx"
+    ]
+  },
+  "browserslist": [
+    "extends @lotto/browserslist-config"
+  ]
+}

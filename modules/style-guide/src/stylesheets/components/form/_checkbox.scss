@@ -1,0 +1,121 @@
+@import "../../base/variables";
+
+//******************************
+//
+//          CHECKBOX
+//
+//******************************
+
+$checkbox-border-size: 1px;
+$checkbox-border-size-checked: 3px;
+
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+
+  .checkbox-marker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    line-height: 21px;
+
+    &:before {
+      content: none; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+    }
+  }
+
+  input[type=checkbox].checkbox-input {
+    opacity: 0;
+    cursor: pointer;
+    border: $checkbox-border-size solid $medium-grey;
+    width: 28px;
+    height: 28px;
+    padding: $checkbox-border-size-checked - $checkbox-border-size;
+    margin: 0;
+    display: block;
+
+    & + .checkbox-marker {
+      background: #FFFFFF;
+      width: 28px;
+      height: 28px;
+      padding: $checkbox-border-size-checked - $checkbox-border-size;
+      border: $checkbox-border-size solid $medium-grey;
+      pointer-events: none;
+    }
+
+    &:checked + .checkbox-marker {
+      border: $checkbox-border-size-checked solid $dark-yellow;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+    }
+
+    &:hover:not(:disabled) + .checkbox-marker {
+      border: $checkbox-border-size solid $dark-grey;
+    }
+
+    &:hover:checked:not(:disabled) + .checkbox-marker {
+      border: $checkbox-border-size-checked solid $darker-yellow;
+    }
+
+    &:checked + .checkbox-marker:after {
+      font-family: "ll-icon-font";
+      font-size: 16px;
+      content: '\52';
+      padding-left: 3px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:disabled:checked + .checkbox-marker {
+      border: $checkbox-border-size-checked solid $medium-grey;
+    }
+
+    &:disabled + .checkbox-marker {
+      opacity: 0.5;
+    }
+  }
+}
+
+.checkbox {
+  margin: 0 !important; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+
+
+  & > label {
+    display: flex;
+    align-items: center;
+    padding: 0 !important; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+  }
+
+  .labeled-checkbox {
+    flex: 0 0 28px;
+    margin-right: 14px;
+    align-self: flex-start;
+  }
+
+  .checkbox-label {
+    font: $font-family-base;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 200;
+
+    &.checkbox-label-disabled {
+      cursor: not-allowed;
+    }
+
+    &.checkbox-label-checked {
+      font-weight: 500;
+    }
+
+    // really bootstrap?!
+    label {
+      margin-bottom: 0;
+      cursor: inherit;
+    }
+  }
+}

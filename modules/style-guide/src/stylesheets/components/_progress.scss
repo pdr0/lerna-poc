@@ -1,0 +1,47 @@
+@import "../base/variables";
+
+.l-progress {
+  display: flex;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    top: 30px;
+    left: 14px;
+    height: calc(100% - 30px);
+    width: 1px;
+    border-left: 2px dotted $medium-grey;
+  }
+
+  &:last-of-type::before {
+    content: none;
+  }
+
+  &-content {
+    margin-top: 5px;
+
+    @media (min-width: $screen-sm) {
+      margin-top: baseUnit(0.5);
+    }
+  }
+
+  &-step {
+    margin-right: 5px;
+    font-size: 12px;
+    font-weight: 300;
+    height: 29px;
+    width: 29px;
+    min-width: 29px;
+    min-height: 29px;
+    line-height: 29px;
+    border: 1px solid $dark-green;
+    border-radius: 50%;
+    text-align: center;
+
+    @media (min-width: $screen-sm) {
+      margin-right: baseUnit(2);
+    }
+  }
+}

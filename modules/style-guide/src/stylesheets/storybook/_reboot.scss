@@ -1,0 +1,13 @@
+@import "../base/variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
+
+html {
+  font-size: 12px; // currently set 12px in lotto-web
+}
+
+hr {
+  margin: 21px 0;
+}

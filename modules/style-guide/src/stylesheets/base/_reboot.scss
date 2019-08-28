@@ -1,0 +1,10 @@
+@import "../base/variables";
+
+// .ll-scoped-components
+& {
+  font-family: FF Daxline Pro, sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.5;
+  color: $black;
+}

@@ -1,0 +1,43 @@
+@import "../base/variables";
+
+//******************************
+//
+//            LINK
+//
+//******************************
+a,
+.link {
+  font-family: $link-font-family;
+  font-weight: 700;
+  color: $dark-green;
+  font-size: $link-font-size;
+  line-height: ($link-font-size * 1.5);
+  cursor: pointer;
+  text-decoration: none;
+
+  &.monochrome {
+    color: $dark-grey;
+  }
+
+  &.monochrome:hover:not(.disabled){
+    color: darken($dark-grey, 20%);
+  }
+
+  &.disabled {
+    color: $medium-grey;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(.disabled) {
+    color: $darker-green;
+  }
+
+  &:active:not(.disabled) {
+    color: $black;
+  }
+
+  &.small {
+    font-size: $link-font-size-small;
+    line-height: ($link-font-size-small * 1.5);
+  }
+}

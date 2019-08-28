@@ -1,0 +1,11 @@
+@import "../../../stylesheets/base/variables";
+
+.main-container {
+  display: flex;
+  align-items: center;
+}
+
+ll-control-minus,
+ll-number-input {
+  margin-right: baseUnit(2);
+}

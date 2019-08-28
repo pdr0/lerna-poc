@@ -1,0 +1,46 @@
+@import "../base/variables";
+
+//******************************
+//
+//          DEFAULT
+//
+//******************************
+.overlay {
+  position: absolute;
+  display: inline-block;
+  width: auto;
+  padding: 28px;
+  background-color: $white;
+  border: 1px solid $medium-grey;
+  border-radius: 2px;
+  box-shadow: 0 4px 7px 0 rgba($black, 0.2);
+  overflow: hidden;
+  z-index: 100;
+  opacity: 1;
+
+  &.overlay-top {
+    bottom: 100%;
+  }
+
+  &.overlay-right {
+    left: 100%;
+  }
+
+  &.overlay-bottom {
+    top: 100%;
+  }
+
+  &.overlay-left {
+    right: 100%;
+  }
+
+  &.overlay-center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.overlay-middle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

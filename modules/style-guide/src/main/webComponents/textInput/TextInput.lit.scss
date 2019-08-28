@@ -1,0 +1,162 @@
+@import "../../../stylesheets/base/variables";
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(baseUnit(-1));
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(baseUnit(-1));
+  }
+}
+
+@mixin paragraph-font ($font-weight: 200) {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: $font-weight;
+}
+
+@mixin small-paragraph-font ($font-weight: 200) {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: $font-weight;
+}
+
+:host, input {
+  font-family: "FF Daxline Pro", sans-serif;
+  font-style: normal;
+  color: var(--color, $color-ui-black);
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+:host([status='valid']) {
+  .help-text {
+    color: $color-status-success;
+  }
+  .input-container {
+    border-bottom-color: $color-status-success;
+  }
+}
+
+:host([status='invalid']) {
+  .help-text {
+    color: $color-status-error;
+  }
+
+  .input-container {
+    border-bottom-color: $color-status-error;
+  }
+}
+
+slot[name=prefix].shown, slot[name=suffix] {
+  display: block;
+  margin-bottom: 2px;
+}
+
+
+slot[name=prefix].shown {
+  margin-right: 5px;
+}
+
+slot[name=suffix] {
+  text-align: right;
+  margin-left: 3px;
+}
+
+:host([filled]) .input-label {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 0;
+}
+
+.input-label {
+  z-index: -1;
+  order: 0;
+  opacity: 0;
+  transform-origin: top left;
+  transform: translateY(14px);
+  transition: opacity 250ms cubic-bezier(0.075, 0.82, 0.165, 1), transform .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin-left: 1px;
+  @include small-paragraph-font(300)
+}
+
+.input-container {
+  position: relative;
+  border-bottom: 1px solid $color-ui-dark-grey;
+  display: flex;
+  align-items: flex-end;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+
+input {
+  order: 1;
+  border: none;
+  width: 100%;
+  height: baseUnit(3);
+  background: transparent;
+  @include paragraph-font(500);
+
+  &::placeholder {
+    @include paragraph-font(200);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.placeholder {
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  @include paragraph-font(200);
+  transition: opacity 100ms ease-in-out;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  .placeholder {
+    bottom: 4px;
+    left: 7px;
+  }
+}
+
+:host([filled]) .placeholder {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.help-text {
+  order: 2;
+  display: block;
+  margin-top: baseUnit(1);
+  @include small-paragraph-font(500);
+  animation: fadeIn 250ms ease-in-out;
+}
+
+.help-text.fadeOut {
+  animation: fadeOut 250ms ease-in-out;
+}

@@ -1,0 +1,35 @@
+@import "../base/variables";
+
+//
+// DEFAULT
+//
+.date-picker-presets {
+  font-family: "FF Daxline Pro";
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.date-picker-preset {
+  list-style-type: none;
+  color: $black;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px $medium-grey inset;
+  padding: 14px 12px 12px;
+  text-align: center;
+  font-weight: 200;
+
+  &:not(.active) {
+    cursor: pointer;
+  }
+
+  & + .date-picker-preset {
+    margin-top: 14px;
+  }
+
+  &.active {
+    box-shadow: 0 0 0 2px $dark-yellow inset;
+    font-weight: 500;
+  }
+}

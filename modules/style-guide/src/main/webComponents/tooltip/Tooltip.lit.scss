@@ -1,0 +1,91 @@
+@import "../../../stylesheets/base/variables";
+
+$timing-function: cubic-bezier(0.55, 0.05, 0.67, 0.19);
+$arrow-size: 10px;
+$tooltip-offset: 68px;
+$arrow-position-right: $tooltip-offset - 23px;
+
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+.icon-container {
+  padding: baseUnit(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  position: absolute;
+  padding: baseUnit(2);
+  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.21);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 300ms $timing-function, opacity 210ms $timing-function;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid $color-ui-medium-grey;
+  width: var(--tooltip-width, 264px);
+
+  &::after {
+    content: ' ';
+    right: $arrow-position-right;
+    position: absolute;
+    display: inline-block;
+    height: $arrow-size;
+    width: $arrow-size;
+    background-color: white;
+    border-bottom: 1px solid $color-ui-medium-grey;
+    border-right: 1px solid $color-ui-medium-grey;
+  }
+
+  &.top-right {
+    transform-origin: calc(100% - #{$arrow-position-right}) calc(100% + 21px);
+    bottom: calc(100% + 7px);
+    right: calc(100% - #{$tooltip-offset});
+
+    &::after {
+      bottom: -($arrow-size / 2) - 1px;
+      transform: rotate(45deg);
+    }
+  }
+
+  &.bottom-right {
+    transform-origin: calc(100% - #{$arrow-position-right}) -21px;
+    top: calc(100% + 7px);
+    right: calc(100% - #{$tooltip-offset});
+
+    &::after {
+      top: -($arrow-size / 2) - 1px;
+      transform: rotate(225deg);
+    }
+  }
+
+  slot {
+    opacity: 0;
+    transition: opacity 240ms $timing-function 50ms;
+  }
+}
+
+:host(:hover), :host(:focus) {
+  .content {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+:host(:hover), :host(:focus) {
+  slot {
+    opacity: 1;
+  }
+}
+
+ll-icon {
+  --color: var(--icon-color, #{$color-ui-green-dark});
+  display: flex;
+  position: relative;
+  right: 0;
+  cursor: pointer;
+}

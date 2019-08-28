@@ -1,0 +1,146 @@
+@import "../../../stylesheets/base/variables";
+
+@mixin xl {
+    .currency, .unit {
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .amount {
+        font-size: 80px;
+        line-height: 60px;
+        margin-top: 20px;
+    }
+
+    .lottery {
+        font-size: 17px;
+        line-height: 26px;
+        font-weight: 300;
+    }
+}
+
+@mixin lg {
+    .currency, .unit {
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .amount {
+        font-size: 60px;
+        line-height: 45px;
+        margin-top: 15px;
+    }
+
+    .lottery {
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: 300;
+    }
+
+}
+
+@mixin md {
+    .currency, .unit {
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .currency {
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .amount {
+        font-size: 40px;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+
+    .lottery {
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 300;
+    }
+}
+
+@mixin margins($px) {
+    .left > :not(:first-child),
+    .right:not(:first-child),
+    .unit.mixed .currency {
+         margin-left: $px;
+     }
+}
+
+:host {
+    .container {
+        display: flex;
+        font-weight: 900;
+        font-family: $font-family-sans-serif;
+
+        .left,
+        .unit {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .right {
+            flex-direction: column;
+            align-items: end;
+            align-self: flex-end;
+        }
+
+        @include margins(baseUnit(1));
+
+        &.md {
+            @include margins(baseUnit(0.5));
+        }
+
+        &.xl {
+            @include xl;
+        }
+
+        &.lg {
+            @include lg;
+        }
+
+        &.md {
+            @include md;
+        }
+
+        &.sm {
+            font-weight: 900;
+            font-size: 21px;
+            line-height: 24px;
+        }
+
+        &.xs {
+            font-size: 12px;
+            line-height: 28px;
+        }
+
+
+        &.responsive {
+            @include margins(baseUnit(0.5));
+            @include md;
+
+            @media (min-width: $screen-extra) {
+                &.extra-bp {
+                    @include margins(baseUnit(1));
+                    @include lg;
+                }
+            }
+
+
+            @media (min-width: $screen-sm) {
+               &,  &.extra-bp {
+                   @include margins(baseUnit(1));
+                   @include xl;
+               }
+            }
+        }
+
+        .lottery {
+            white-space: nowrap;
+        }
+    }
+}

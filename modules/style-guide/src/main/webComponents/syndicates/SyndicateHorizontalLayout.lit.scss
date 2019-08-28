@@ -1,0 +1,23 @@
+@import "../../../stylesheets/base/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+
+  ::slotted(:not(:first-child)) {
+    margin-top: baseUnit(4);
+  }
+
+  @media (min-width: $screen-sm) {
+    flex-direction: row;
+
+    ::slotted(*) {
+      flex: 1;
+    }
+
+    ::slotted(:not(:first-child)) {
+      margin-left: baseUnit(9);
+      margin-top: 0;
+    }
+  }
+}

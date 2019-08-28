@@ -1,0 +1,10 @@
+// Only for Edge
+@supports (-ms-ime-align: auto) {
+  button.button, a.button {
+    text-shadow: none;
+
+    &:active {
+      box-shadow: 0 4px 7px 0 rgba(1, 36, 6, 0.20);
+    }
+  }
+}

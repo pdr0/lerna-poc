@@ -1,0 +1,37 @@
+
+@function getDefaultProperty ( $map, $keys... ) {
+  @each $key in $keys {
+      $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@function mapGetProperty ( $map, $lottery, $keys... ) {
+  $map: map-get($map, $lottery);
+  @each $key in $keys {
+    @if(map_has_key($map, $key)){
+      $map: map-get($map, $key);
+    } @else {
+      @return call(get-function("getDefaultProperty"), $default, $keys...);
+    }
+  }
+  @return $map;
+}
+
+/**
+ *  Returns a merged map from map1 and map2
+ */
+@function extends($map1, $map2) {
+  @if ((type-of($map1) == map or type-of($map1) == list) and (type-of($map2) == map or type-of($map2) == list)) {
+    $result: $map1;
+    @each $key, $value in $map2 {
+      @if (type-of(map-get($result, $key)) == map and type-of($value) == map) {
+        $result: map-merge($result, ($key: extends(map-get($result, $key), $value)));
+      }
+      @else {
+        $result: map-merge($result, ($key: $value));
+      }
+    }
+    @return $result;
+  }
+}

@@ -1,0 +1,102 @@
+@import "../base/variables";
+
+.cta {
+  background: none !important;
+  font-family: $font-family-base;
+  font-weight: 900;
+  font-size: 14px;
+  color: $white !important;
+  border-radius: 2px;
+  text-transform: uppercase;
+  padding: 0;
+  border: none;
+  line-height: 21px !important;
+  cursor: pointer;
+  height: auto; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+  text-shadow: none !important; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+  box-shadow: none !important; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+  text-align: center; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+  overflow: hidden; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+  outline: none;
+
+  &:active {
+    line-height: 21px; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+    padding-top: 0; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+    padding-bottom: 0; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+    box-shadow: none; // override legacy css (as soon as IE and FF implement WC spec, this can be removed)
+  }
+
+  // workaround because gradient do not support transitions
+  // i'm proud of this. it's shit.
+  .cta-transition-container {
+    background: transparent !important;
+    border-radius: 2px;
+    padding: 12px 35px 9px;
+    transition: background .2s ease-in !important;
+  }
+}
+
+.cta-primary {
+  background: linear-gradient(to right, $light-green, $dark-green) !important;
+
+  &:hover:not(:disabled) {
+    .cta-transition-container {
+      background: $dark-green !important;
+    }
+  }
+
+  &:active:not(:disabled) {
+    .cta-transition-container {
+      background: $darker-green !important;
+    }
+  }
+
+  &:disabled {
+    background: $medium-grey !important;
+    cursor: not-allowed;
+  }
+}
+
+.cta-secondary {
+  color: $dark-green !important;
+  border: 1px solid $dark-green;
+
+  &:hover {
+    border-color: $darker-green;
+    color: $darker-green !important;
+  }
+
+  &:active {
+    border-color: $darker-green;
+    background: $darker-green !important;
+    color: $white !important;
+  }
+
+  &:disabled {
+    border-color: $medium-grey;
+    background: $white !important;
+    color: $medium-grey !important;
+    cursor: not-allowed;
+  }
+}
+
+.cta-link {
+  color: $dark-green !important;
+  border: 1px solid transparent;
+
+  &:hover, &:active {
+    color: $darker-green !important;
+  }
+
+  &:disabled {
+    color: $medium-grey !important;
+    cursor: not-allowed;
+  }
+}
+
+.cta-padding-small {
+  .cta-transition-container {
+    padding-right: baseUnit(2);
+    padding-left: baseUnit(2);
+  }
+}

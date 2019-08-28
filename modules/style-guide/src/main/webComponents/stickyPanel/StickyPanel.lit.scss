@@ -1,0 +1,48 @@
+@import "../../../stylesheets/base/variables";
+
+:host {
+  --sticky-panel-offset: #{baseUnit(2)};
+  display: block;
+  position: fixed;
+  bottom: calc(-100% - var(--sticky-panel-offset));
+  left: 0;
+  right: 0;
+  transition: transform 500ms cubic-bezier(0.23, 1.25, 0.45, 1), background-color 1s cubic-bezier(0.23, 1.25, 0.45, 1);
+  height: calc(100% + 14px);
+  margin-bottom: baseUnit(-2);
+}
+
+.content {
+  background: white;
+  height: 100%;
+  border-radius: 4px 4px 0 0;
+  padding-top: baseUnit(1);
+  padding-left: baseUnit(2);
+  padding-right: baseUnit(2);
+  box-shadow: 0 0 21px 0 rgba(1, 36, 6, 0.3);
+}
+
+slot {
+  display: block;
+}
+
+:host([state=collapsed]) {
+  transform: translateY(calc((var(--height-collapsed) + var(--sticky-panel-offset)) * -1));
+}
+
+:host([state=expanded]) {
+  background-color: scale-color($color-ui-black, $alpha: -30%);
+  transform: translateY(calc((100% + 14px) * -1));
+}
+
+:host([state=expanded]) .content {
+  height: calc(var(--height-expanded));
+  max-height: var(--max-height);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: calc(100% - var(--height-expanded));
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}

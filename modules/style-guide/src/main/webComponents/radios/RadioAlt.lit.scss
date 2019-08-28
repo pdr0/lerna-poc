@@ -1,0 +1,39 @@
+@import "../../../stylesheets/base/variables";
+
+:host {
+  display: inline-block;
+  font-family: "FF Daxline Pro", sans-serif;
+}
+
+.label {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-ui-black;
+  border: 1px solid $color-ui-medium-grey;
+  border-radius: 2px;
+  padding: 10px 4px 9px;
+  cursor: pointer;
+  transition: border-color 250ms ease-in-out, background-color 250ms ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.label:hover {
+  border-color: $color-ui-dark-grey;
+}
+
+input:checked ~ .label {
+  font-weight: 500;
+  background: $color-ll-yellow-dark;
+  border-color: $color-ll-yellow-dark;
+}
+
+input {
+  display: none;
+}

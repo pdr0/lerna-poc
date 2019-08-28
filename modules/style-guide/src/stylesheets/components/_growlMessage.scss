@@ -1,0 +1,38 @@
+@import "../base/variables";
+
+.l-growlMessage {
+  background: $white;
+  position: fixed;
+  top: baseUnit(2);
+  right: baseUnit(2);
+  left: baseUnit(2);
+  padding: baseUnit(3);
+  border: 1px solid $medium-grey;
+  box-shadow: 0 0 21px 0 rgba(1,36,6,0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+
+  @media (min-width: $screen-sm) {
+    left: auto;
+  }
+
+  .l-growlMessage-icon {
+    font-size: 28px;
+    margin-right: baseUnit(3);
+  }
+
+  .l-growlMessage-content {
+    font-size: 14px;
+    line-height: 21px;
+    position: relative;
+    top: 2px;
+  }
+
+  .l-growlMessage-close {
+    font-size: 14px;
+    margin-left: baseUnit(6);
+    cursor: pointer;
+  }
+}
