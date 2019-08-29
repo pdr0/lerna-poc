@@ -1,0 +1,63 @@
+{
+  "name": "lotto-web-component-wrapper",
+  "version": "0.1.5",
+  "private": true,
+  "main": "src/main/index.js",
+  "dependencies": {
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-shadow-dom-retarget-events": "1.0.8"
+  },
+  "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "24.8.0",
+    "flow-bin": "0.100.0",
+    "jest": "24.8.0",
+    "jest-teamcity-reporter": "0.9.0"
+  },
+  "scripts": {
+    "flow": "flow",
+    "test": "node scripts/test.js --coverage",
+    "test-coverage": "npm run test -- --coverage"
+  },
+  "publishConfig": {
+    "registry": "https://repo.dreamit.de/api/npm/npm-repo/"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/main/**/*.{js,jsx,mjs}",
+      "!src/main/index.{js,jsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/test/unit/**/?(*.)(spec|test).{js,jsx,mjs}"
+    ],
+    "setupFiles": [],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/config/jest/wrapper.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
+    "moduleFileExtensions": [
+      "web.js",
+      "mjs",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 and_chr versions",
+    "last 1 safari versions",
+    "last 1 ios_saf versions",
+    "last 2 Firefox versions",
+    "last 1 edge versions",
+    "last 1 samsung versions"
+  ]
+}
