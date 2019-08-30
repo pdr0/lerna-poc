@@ -3,6 +3,7 @@ const babelConfig = {
 };
 
 module.exports = ({ config }) => {
+    config.entry.push('/Users/pedro.selas/work/lerna-poc/modules/style-guide/src/main/webComponents/main.js');
     return {
         ...config,
         module: {
